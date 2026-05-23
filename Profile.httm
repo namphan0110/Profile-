@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phan Hoài Nam — Account · Sales · Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--white:#f5f0e8;--accent:#e84c1e;--accent2:#f5a623;--mid:#141414;--muted:#666;--border:rgba(255,255,255,0.08)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;z-index:100;background:rgba(10,10,10,0.97);border-bottom:1px solid var(--border)}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:var(--white);text-decoration:none}
+.logo span{color:var(--accent)}
+.nav-r{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--accent);border:1px solid var(--accent);padding:5px 10px}
+
+/* HERO */
+.hero{min-height:100vh;padding:90px 20px 60px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(232,76,30,0.15) 0%,transparent 70%);pointer-events:none}
+.h-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.h-tag::before{content:'';width:20px;height:1px;background:var(--accent)}
+.h-name{font-family:'Bebas Neue',sans-serif;font-size:min(22vw,96px);line-height:0.88;letter-spacing:-2px}
+.h-name .r{color:var(--accent);display:block}
+.h-sub{font-size:13px;color:rgba(245,240,232,0.55);margin-top:20px;line-height:1.85;max-width:320px}
+.h-stats{display:flex;margin-top:24px;border:1px solid var(--border)}
+.hs{flex:1;padding:14px 10px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:3px}
+.hs:last-child{border-right:none}
+.hs-n{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--accent);line-height:1}
+.hs-l{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.h-cta{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.btn-a{background:var(--accent);color:var(--white);padding:13px 22px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block}
+.btn-b{border:1px solid var(--border);color:var(--white);padding:13px 22px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block}
+
+/* MARQUEE */
+.mq{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:12px 0;overflow:hidden}
+.mq-track{display:flex;white-space:nowrap;animation:mq 16s linear infinite}
+.mi{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:4px;color:var(--muted);padding:0 24px}
+.mi span{color:var(--accent);margin:0 4px}
+
+/* SECTION */
+section{padding:72px 20px}
+.sl{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.sl::before{content:'';width:20px;height:1px;background:var(--accent)}
+.st{font-family:'Bebas Neue',sans-serif;font-size:min(12vw,56px);line-height:1;letter-spacing:-1px;margin-bottom:36px}
+.st em{color:var(--accent);font-style:normal}
+
+/* ABOUT */
+.ab-txt{font-size:14px;line-height:1.9;color:rgba(245,240,232,0.7);margin-bottom:16px}
+.ab-txt strong{color:var(--white);font-weight:500}
+.ab-q{padding:14px 18px;border-left:3px solid var(--accent);background:rgba(232,76,30,0.06);font-size:13px;font-style:italic;color:rgba(245,240,232,0.6);margin-bottom:24px}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.ic{background:var(--black);padding:13px 14px;display:flex;flex-direction:column;gap:3px}
+.ik{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.iv{font-size:13px;color:var(--white)}
+.iv.hl{color:var(--accent2)}
+
+/* EXP */
+.ei{padding:22px 0;border-top:1px solid var(--border);position:relative}
+.ei::before{content:'';position:absolute;top:0;left:0;width:0;height:1px;background:var(--accent);transition:width 0.5s}
+.ei:hover::before{width:100%}
+.eh{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:4px}
+.er{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:var(--white);line-height:1.1;flex:1}
+.ed{font-family:'Space Mono',monospace;font-size:8px;color:var(--muted);white-space:nowrap;padding-top:3px}
+.et{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);background:rgba(232,76,30,0.1);padding:3px 8px;display:inline-block;margin-bottom:8px}
+.ec{font-family:'Space Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:10px}
+.ep{list-style:none;display:flex;flex-direction:column;gap:7px}
+.ep li{font-size:12px;color:rgba(245,240,232,0.6);padding-left:14px;position:relative;line-height:1.7}
+.ep li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:9px;top:4px}
+
+/* PROJECT */
+.pb{background:var(--mid);border:1px solid var(--border);padding:24px 18px;position:relative}
+.pb::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.pt{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:block}
+.pn{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:1px;line-height:1;margin-bottom:4px}
+.ps{font-size:11px;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:16px;line-height:1.6}
+.kg{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:16px}
+.kc{background:var(--black);padding:12px 8px;display:flex;flex-direction:column;gap:3px}
+.kv{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--accent2);line-height:1}
+.kl{font-family:'Space Mono',monospace;font-size:7px;letter-spacing:0.5px;text-transform:uppercase;color:var(--muted)}
+.pd{font-size:12px;color:rgba(245,240,232,0.6);line-height:1.8}
+
+/* SKILLS */
+.skg{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.sg{background:var(--mid);border:1px solid var(--border);padding:18px 14px}
+.sgt{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--accent);margin-bottom:10px}
+.tgs{display:flex;flex-wrap:wrap;gap:5px}
+.tg{font-family:'Space Mono',monospace;font-size:8px;padding:4px 8px;border:1px solid var(--border);color:rgba(245,240,232,0.6)}
+.tb{margin-top:2px;background:var(--mid);border:1px solid var(--border);padding:14px;grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px}
+.tl{display:flex;align-items:center;gap:5px;font-family:'Space Mono',monospace;font-size:10px;color:var(--muted)}
+.td{width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0}
+
+/* STRENGTHS */
+.stg{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.sc{background:var(--mid);border:1px solid var(--border);padding:18px 14px;transition:all 0.2s}
+.sc:hover{border-color:var(--accent);transform:translateY(-3px)}
+.si{font-size:20px;margin-bottom:8px}
+.sct{font-size:13px;font-weight:500;color:var(--white);margin-bottom:5px}
+.scd{font-size:11px;color:var(--muted);line-height:1.7}
+
+/* CONTACT */
+.con{background:var(--mid);border-top:1px solid var(--border);text-align:center;position:relative;overflow:hidden}
+.con-glow{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:350px;height:250px;background:radial-gradient(ellipse,rgba(232,76,30,0.08) 0%,transparent 70%);pointer-events:none}
+.con .st{font-size:min(16vw,80px)}
+.con-sub{font-size:13px;color:var(--muted);max-width:280px;margin:0 auto 28px;line-height:1.8}
+.cls{display:flex;flex-direction:column;gap:10px}
+.cl{display:flex;align-items:center;gap:12px;padding:15px 18px;border:1px solid var(--border);color:var(--white);text-decoration:none;font-family:'Space Mono',monospace;font-size:11px;transition:all 0.2s}
+.cl:hover{border-color:var(--accent);color:var(--accent)}
+
+/* FOOTER */
+footer{padding:20px;border-top:1px solid var(--border);text-align:center;display:flex;flex-direction:column;gap:6px}
+footer span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.rv.on{opacity:1;transform:none}
+
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">PHN<span>.</span></a>
+  <span class="nav-r">✓ Tìm việc</span>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <p class="h-tag">Available for hire · Long An / TP.HCM</p>
+  <h1 class="h-name">PHAN<br>HOÀI<br><span class="r">NAM.</span></h1>
+  <p class="h-sub">Account tự do · 1 năm 6 tháng thực chiến content marketing. Khai thác khách hàng · Điều phối dự án · Xây hệ thống.</p>
+  <div class="h-stats">
+    <div class="hs"><span class="hs-n">1.5+</span><span class="hs-l">Năm KN</span></div>
+    <div class="hs"><span class="hs-n">55.9M</span><span class="hs-l">Giá trị HĐ</span></div>
+    <div class="hs"><span class="hs-n">300K</span><span class="hs-l">Members</span></div>
+  </div>
+  <div class="h-cta">
+    <a href="#contact" class="btn-a">Liên hệ ngay</a>
+    <a href="#exp" class="btn-b">Kinh nghiệm</a>
+  </div>
+</section>
+
+<div class="mq">
+  <div class="mq-track">
+    <span class="mi">ACCOUNT<span>✦</span></span><span class="mi">SALES<span>✦</span></span><span class="mi">MARKETING<span>✦</span></span><span class="mi">CONTENT<span>✦</span></span><span class="mi">PROJECT MANAGEMENT<span>✦</span></span><span class="mi">TIKTOK<span>✦</span></span><span class="mi">COMMUNITY<span>✦</span></span><span class="mi">ACCOUNT<span>✦</span></span><span class="mi">SALES<span>✦</span></span><span class="mi">MARKETING<span>✦</span></span><span class="mi">CONTENT<span>✦</span></span><span class="mi">PROJECT MANAGEMENT<span>✦</span></span><span class="mi">TIKTOK<span>✦</span></span><span class="mi">COMMUNITY<span>✦</span></span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="rv"><p class="sl">Về tôi</p><h2 class="st">Tôi là<br><em>ai.</em></h2></div>
+  <div class="rv">
+    <p class="ab-txt">Tôi là <strong>Account tự do</strong> với 1 năm 6 tháng kinh nghiệm thực chiến — chuyên khai thác & hỗ trợ khách hàng, điều phối dự án content marketing từ A đến Z.</p>
+    <p class="ab-txt">Nền tảng vững về <strong>sản xuất nội dung</strong>, quản lý cộng đồng và vận hành mạng xã hội — từ group 300K thành viên đến chiến dịch TikTok Ads cho doanh nghiệp FDI.</p>
+    <div class="ab-q">"Mục tiêu: đảm nhận vị trí Account / Sales / Marketing"</div>
+    <div class="ig">
+      <div class="ic"><span class="ik">Tuổi</span><span class="iv">21 tuổi (2004)</span></div>
+      <div class="ic"><span class="ik">Địa điểm</span><span class="iv">TP.HCM</span></div>
+      <div class="ic"><span class="ik">Email</span><span class="iv">bookingphn@gmail.com</span></div>
+      <div class="ic"><span class="ik">Zalo / ĐT</span><span class="iv">0972 986 307</span></div>
+      <div class="ic" style="grid-column:1/-1"><span class="ik">Trạng thái</span><span class="iv hl">✓ Đang tìm việc — Account / Sales / Marketing</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="exp" style="padding-top:0">
+  <div class="rv"><p class="sl">Kinh nghiệm</p><h2 class="st">Từng<br><em>làm.</em></h2></div>
+  <div class="ei rv">
+    <div class="eh"><span class="er">Account & Điều Phối Dự Án</span><span class="ed">12/2023–Nay</span></div>
+    <span class="et">Part-time</span>
+    <p class="ec">Thạch Làm Content · Win-hub Agency</p>
+    <ul class="ep">
+      <li>Khai thác & ký kết HĐ AJH × Wistron — TikTok tuyển dụng KCN Đồng Văn III, trị giá 55.890.000đ/3 tháng</li>
+      <li>Điều phối toàn bộ: brief → kịch bản → quay → dựng → duyệt → đăng, 4 video/tuần</li>
+      <li>Xây hệ thống tài liệu nội bộ: brief template, tiêu chí duyệt, quy trình làm việc với KH</li>
+      <li>Soạn & đàm phán hợp đồng dịch vụ, phụ lục hợp đồng đúng chuẩn pháp lý</li>
+      <li>Gửi báo cáo hàng tuần & tư vấn tối ưu nội dung theo data</li>
+    </ul>
+  </div>
+  <div class="ei rv">
+    <div class="eh"><span class="er">Creative Content Assistant</span><span class="ed">10/2024–2025</span></div>
+    <span class="et">Freelance</span>
+    <p class="ec">Thạch Làm Content Agency</p>
+    <ul class="ep">
+      <li>Sản xuất nội dung truyền thông trên TikTok và Facebook</li>
+      <li>Viết kịch bản video ngắn theo format storytelling & biên tập video</li>
+      <li>Lập kế hoạch nội dung theo tháng, tuần</li>
+    </ul>
+  </div>
+  <div class="ei rv">
+    <div class="eh"><span class="er">Admin Group & Fanpage</span><span class="ed">2024–2025</span></div>
+    <span class="et">Full-time</span>
+    <p class="ec">Công ty CP Truyền Thông XGR-Corp</p>
+    <ul class="ep">
+      <li>Quản lý group 30K–300K thành viên trên Facebook</li>
+      <li>Lên kế hoạch & đăng tải 50 bài/tháng đa kênh</li>
+      <li>Chăm sóc KH online: inbox, comment, xử lý phản hồi &lt;24h</li>
+    </ul>
+  </div>
+  <div class="ei rv">
+    <div class="eh"><span class="er">Admin — Xóm Tập Viết</span><span class="ed">2022–2024</span></div>
+    <span class="et">Community</span>
+    <p class="ec">Project · 20,000 Thành viên</p>
+    <ul class="ep">
+      <li>Quản lý cộng đồng viết lách 20.000 thành viên</li>
+      <li>Tổ chức mini game, cuộc thi viết định kỳ</li>
+      <li>Kêu gọi hợp tác, tài trợ từ các thương hiệu</li>
+    </ul>
+  </div>
+</section>
+
+<section id="project" style="padding-top:0">
+  <div class="rv"><p class="sl">Dự án nổi bật</p><h2 class="st">Deal<br><em>thật.</em></h2></div>
+  <div class="pb rv">
+    <span class="pt">✦ TikTok Campaign · 2026</span>
+    <h3 class="pn">AJH × WISTRON<br>INFOCOMM</h3>
+    <p class="ps">TikTok tuyển dụng công nhân KCN Đồng Văn III, Hà Nam</p>
+    <div class="kg">
+      <div class="kc"><span class="kv">55.9M</span><span class="kl">Giá trị</span></div>
+      <div class="kc"><span class="kv">40</span><span class="kl">Video</span></div>
+      <div class="kc"><span class="kv">20</span><span class="kl">UV/tháng</span></div>
+      <div class="kc"><span class="kv">3</span><span class="kl">Tháng</span></div>
+    </div>
+    <p class="pd">HĐ đầu tiên tự khai thác & ký kết với tư cách Account. Tự viết brief, thiết lập KPI, soạn phụ lục và triển khai toàn bộ quy trình sản xuất.</p>
+  </div>
+</section>
+
+<section id="skills" style="padding-top:0">
+  <div class="rv"><p class="sl">Kỹ năng</p><h2 class="st">Tôi làm<br><em>được gì.</em></h2></div>
+  <div class="skg rv">
+    <div class="sg"><p class="sgt">Account & Sales</p><div class="tgs"><span class="tg">Deal HĐ</span><span class="tg">Pitching</span><span class="tg">Soạn HĐ</span><span class="tg">Điều phối</span><span class="tg">Chăm sóc KH</span></div></div>
+    <div class="sg"><p class="sgt">Content</p><div class="tgs"><span class="tg">Viết nội dung</span><span class="tg">Kịch bản</span><span class="tg">Biên tập video</span><span class="tg">TikTok/Reels</span><span class="tg">Lên KH</span></div></div>
+    <div class="sg"><p class="sgt">Community</p><div class="tgs"><span class="tg">Quản lý Group</span><span class="tg">Fanpage</span><span class="tg">Mini game</span><span class="tg">TikTok Ads</span></div></div>
+    <div class="sg"><p class="sgt">Operations</p><div class="tgs"><span class="tg">Báo cáo data</span><span class="tg">Xây quy trình</span><span class="tg">Google Sheets</span><span class="tg">Notion</span></div></div>
+    <div class="tb"><div class="tl"><span class="td"></span>Canva</div><div class="tl"><span class="td"></span>CapCut</div><div class="tl"><span class="td"></span>TikTok Biz</div><div class="tl"><span class="td"></span>FB Biz</div><div class="tl"><span class="td"></span>Notion</div><div class="tl"><span class="td"></span>Google WS</div></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="rv"><p class="sl">Điểm mạnh</p><h2 class="st">Tại sao<br><em>chọn tôi.</em></h2></div>
+  <div class="stg rv">
+    <div class="sc"><div class="si">⚡</div><p class="sct">Tự học & thực chiến</p><p class="scd">Toàn bộ kỹ năng từ kinh nghiệm thật.</p></div>
+    <div class="sc"><div class="si">🤝</div><p class="sct">Mang về HĐ 55.9M</p><p class="scd">Tự khai thác HĐ giá trị cao cho agency.</p></div>
+    <div class="sc"><div class="si">🧩</div><p class="sct">Tư duy hệ thống</p><p class="scd">Xây quy trình, brief template từ đầu.</p></div>
+    <div class="sc"><div class="si">🔥</div><p class="sct">Chịu áp lực cao</p><p class="scd">Nhiều dự án song song, hiệu suất ổn định.</p></div>
+    <div class="sc" style="grid-column:1/-1"><div class="si">🌐</div><p class="sct">Kết nối đa dạng</p><p class="scd">Từ cộng đồng 20K đến khách hàng FDI — mạng lưới rộng.</p></div>
+  </div>
+</section>
+
+<section id="contact" class="con">
+  <div class="con-glow"></div>
+  <div style="position:relative;z-index:1">
+    <p class="sl" style="justify-content:center">Liên hệ</p>
+    <h2 class="st rv">Cùng<br><em>làm việc.</em></h2>
+    <p class="con-sub rv">Bạn đang tìm Account, Sales hoặc Marketing? Tôi sẵn sàng!</p>
+    <div class="cls rv">
+      <a href="tel:0972986307" class="cl">📞 <span>0972 986 307</span></a>
+      <a href="mailto:bookingphn@gmail.com" class="cl">✉️ <span>bookingphn@gmail.com</span></a>
+      <a href="https://zalo.me/0972986307" class="cl" target="_blank">💬 <span>Zalo: 0972 986 307</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Phan Hoài Nam</span>
+  <span>Account · Sales · Marketing · TP.HCM</span>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')})},{threshold:0.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
